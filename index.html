@@ -187,13 +187,13 @@
       <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
       <li><b>Saving:</b> event logs, bestshot images and raw metadata per camera, each switched on only if you want it.</li>
       <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-4 are remembered.</li>
-      <li><b>Portable and up to date:</b> no installer; the app tells you when a new version is out.</li>
+      <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
     </ul>
     <h3 class="sub">Getting started</h3>
     <ol class="steps note">
       <li>Enter the camera's IP address, user name and password, and click <b>Log In</b>. The RTSP path is
-        prefilled with <code>/onvif/profile2/media.smp</code>, the ONVIF profile of Hanwha Vision (Wisenet)
-        cameras; for other cameras, enter the path of their metadata stream.</li>
+        prefilled with <code>/onvif/profile2/media.smp</code>; if your camera streams its metadata
+        elsewhere, enter that path.</li>
       <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
         for the counts.</li>
@@ -206,7 +206,7 @@
       <h3>In use</h3>
       <video class="demo" id="demo" controls muted loop playsinline preload="metadata"></video>
     </div>
-    <h3 id="shots-h" hidden>Screenshots <span class="note">(click to enlarge)</span></h3>
+    <h3 id="shots-h" hidden>Screenshots <span class="note">(simulated camera data; click to enlarge)</span></h3>
     <div class="shots" id="shots"></div>
   </section>
 
@@ -221,7 +221,7 @@
 
   <section id="download">
     <h2>Download</h2>
-    <p class="note" style="margin:0">Windows 10 / 11, 64-bit. One archive with everything in it (GStreamer, the
+    <p class="note" style="margin:0">Windows 10 / 11, 64-bit. One zip with everything in it (GStreamer, the
       streaming library, is included): nothing else to install.</p>
     <div class="dl-card">
       <a class="btn" id="dl" href="https://github.com/namtpham/event-metadata-monitor-app/releases/latest">Download</a>
@@ -231,9 +231,8 @@
       </div>
     </div>
     <ul class="reqs note">
-      <li>Unpack the <code>.7z</code> anywhere you can write to (not Program Files) and start
-        <b>EventMetadataMonitor.exe</b>. Windows 11 opens <code>.7z</code> files itself (right-click &gt;
-        Extract All); on Windows 10 use <a href="https://www.7-zip.org/" target="_blank" rel="noopener">7-Zip</a> (free).</li>
+      <li>Unzip it (right-click &gt; Extract All) anywhere you can write to, not Program Files, and start
+        <b>EventMetadataMonitor.exe</b> in the <b>EventMetadataMonitor</b> folder.</li>
       <li>Windows may say "Windows protected your PC" for a new app: click <b>More info &gt; Run anyway</b>.</li>
       <li>The app is portable: your cameras and settings (<code>cameras.json</code>), logs and saved data stay
         in its folder.</li>
@@ -241,8 +240,9 @@
     <h3 class="sub">Updating</h3>
     <p class="note" style="margin:0">From version 1.5.0 the app tells you when a new version is out:
       by itself once a day (Settings &gt; General &gt; <b>Check for updates automatically</b>, on unless you
-      turn it off), or at once with <b>Help &gt; Check for updates</b>. Download the new archive and unpack it
-      over your app's folder: your cameras, settings and saved data stay as they are.</p>
+      turn it off), or at once with <b>Help &gt; Check for updates</b>. Click <b>Update now</b>: it downloads
+      the new version, checks it, restarts and reconnects, and keeps your cameras, settings and saved data.
+      If the app's folder cannot be written to, unzip the new version over it instead.</p>
     <p class="note" style="margin:8px 0 0">Network blocks this website? The app then checks on github.com
       instead, and the downloads are on the
       <a href="https://github.com/namtpham/event-metadata-monitor-app/releases/latest">GitHub releases page</a>.</p>
@@ -258,7 +258,8 @@
     <h2>Feedback and bug reports</h2>
     <p class="note">Questions, ideas, problems: write below<span id="fb-noacct">, no account needed</span>. For a bug,
       please add the app version (Help &gt; About &gt; Copy app version), the camera model and firmware, and
-      what you did before it happened. The file <code>logs\debug.log</code> in the app's folder helps too.</p>
+      what you did before it happened. The file <code>logs\debug.log</code> in the app's folder helps too
+      (it lists your cameras' IP addresses; passwords are not in it).</p>
     <form class="fb" id="fb" hidden>
       <div class="row">
         <label>Kind
@@ -340,7 +341,7 @@ fetch("versions.json", { cache: "no-store" })
   .then(r => r.json())
   .then(feed => {
     document.getElementById("latest-label").textContent = "Latest: " + feed.latest;
-    // The archive of the latest release, straight from its download link (the
+    // The zip of the latest release, straight from its download link (the
     // release page also lists GitHub's "Source code" archives: only this
     // website's files, not the app). Without one, the button opens the release.
     const latest = feed.releases.find(r => r.version === feed.latest) || {};
@@ -468,7 +469,7 @@ fetch("versions.json", { cache: "no-store" })
   const shots = document.getElementById("shots");
   const loaded = [];          // [src, caption, figure] in SCREENSHOTS order
   SCREENSHOTS.forEach(([src, caption], i) => {
-    const img = el("img", { src, alt: caption || "Screenshot " + (i + 1), decoding: "async" });
+    const img = el("img", { src, alt: caption || "Screenshot " + (i + 1) });
     const a = el("a", { href: src }, img);
     const fig = el("figure", { style: "margin:0" }, a);
     if (caption) fig.append(el("figcaption", {}, caption));

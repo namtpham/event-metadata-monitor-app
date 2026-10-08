@@ -13,7 +13,8 @@
         "Double-click a timestamp to copy that event's metadata XML; double-click a feature to see it, colour-coded, with a picture of it on the clipboard.",
         "Event statistics per feature, with average rates and Enter / Exit counts; RTP packet-loss and memory charts for long sessions.",
         "Saves event logs, bestshot images and metadata per camera if you want; reconnects by itself when the stream drops.",
-        "Updates: Help > Check for updates, and an automatic check once a day that can be turned off in Settings > General."
+        "Updates: Help > Check for updates, and an automatic check once a day that can be turned off in Settings > General. Update now downloads the new version and restarts, keeping your cameras, settings and saved data.",
+        "Camera passwords show as *** in the event log and in logs\\debug.log."
       ]
     }
   ]
