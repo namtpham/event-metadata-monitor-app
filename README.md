@@ -30,7 +30,8 @@ the rule that fired, and the details you choose (object ID, Enter / Exit, speed,
 - **Event statistics** per feature, with average rates and Enter / Exit counts.
 - **RTP packet loss** and memory charts for long sessions.
 - Saves event logs and metadata per camera, if you want.
-- Metadata path filled in for Axis, Bosch, Dahua, Hanwha Vision and Hikvision cameras; any ONVIF camera works.
+- Any ONVIF camera: the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision
+  and Uniview, and any other camera works with its own path. Events from any analytics app, no setup.
 - Reconnects by itself; updates itself (Help > Check for updates > Update now).
 
 ## Get it

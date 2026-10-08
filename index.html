@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Event Metadata Monitor</title>
 <meta name="description" content="Event Metadata Monitor: a free Windows app that shows the ONVIF analytics events of IP cameras live. Downloads, what's new, feedback.">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico?v=2">
 <style>
   :root {
     --bg: #f5f6f8; --card: #ffffff; --text: #1d2330; --muted: #5f6b7a; --line: #e2e6ec;
@@ -134,7 +134,7 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <img src="icon.png" alt="">
+      <img src="icon.png?v=2" alt="">
       <div>
         <h1>Event Metadata Monitor</h1>
         <p class="tagline">See the analytics events of your IP cameras live: every event, its state, rule and metadata. Free for Windows.</p>
@@ -186,15 +186,16 @@
       <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates, the last state and the time since it.</li>
       <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
       <li><b>Saving:</b> event logs and raw metadata per camera, each switched on only if you want it.</li>
-      <li><b>Camera makers:</b> the metadata path filled in for Axis, Bosch, Dahua, Hanwha Vision and Hikvision cameras; any other ONVIF camera with its own path.</li>
+      <li><b>Any ONVIF camera:</b> the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision and Uniview, and the list is not a limit: any camera that streams ONVIF metadata over RTSP works with its own path.</li>
+      <li><b>Any analytics app:</b> every event is shown under its own name, from whichever app or rule engine sent it; nothing to set up.</li>
       <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-4 are remembered.</li>
       <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
     </ul>
     <h3 class="sub">Getting started</h3>
     <ol class="steps note">
-      <li>Enter the camera's IP address, user name and password. Choose its <b>Maker</b> (Axis, Bosch,
-        Dahua, Hanwha Vision, Hikvision) to fill in the path of its metadata stream, or choose
-        <b>Other / ONVIF</b> and enter the path from the camera's ONVIF settings. Click <b>Log In</b>.</li>
+      <li>Enter the camera's IP address, user name and password. Choose its <b>Maker</b> to fill in the
+        path of its metadata stream. Not in the list? Choose <b>Other / ONVIF</b> and enter the path from
+        the camera's ONVIF settings or manual (ONVIF Device Manager shows it too). Click <b>Log In</b>.</li>
       <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
         for the counts.</li>
@@ -322,16 +323,20 @@ const WEB3FORMS_KEY = "658c4437-0601-4b97-ae49-45a2c129c203";
 // skipped; with none at all the section is hidden.
 const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
+// The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
+// ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
+const MEDIA_REV = "202610081717";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
-  ["media/screenshot-2.png", "Event statistics after 30 hours of monitoring"],
-  ["media/screenshot-3.png", "An event's metadata (double-click a feature)"],
-  ["media/screenshot-4.png", "Features: choose which events to show"],
-  ["media/screenshot-5.png", "Right-click a feature: only its events are shown"],
-  ["media/screenshot-6.png", "Paused (Space): the banner counts the events skipped"],
-  ["media/screenshot-7.png", "Settings > General"],
-  ["media/screenshot-8.png", "A new version is out"],
-];
+  ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],
+  ["media/screenshot-3.png", "Event statistics after 30 hours of monitoring"],
+  ["media/screenshot-4.png", "An event's metadata (double-click a feature)"],
+  ["media/screenshot-5.png", "Features: choose which events to show"],
+  ["media/screenshot-6.png", "Right-click a feature: only its events are shown"],
+  ["media/screenshot-7.png", "Paused (Space): the banner counts the events skipped"],
+  ["media/screenshot-8.png", "Settings > General"],
+  ["media/screenshot-9.png", "A new version is out"],
+].map(([src, caption]) => [src + "?v=" + MEDIA_REV, caption]);
 
 function el(tag, attrs, ...kids) {
   const e = document.createElement(tag);
