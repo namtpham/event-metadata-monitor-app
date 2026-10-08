@@ -185,15 +185,14 @@
       <li><b>Your fields:</b> choose which SimpleItem values follow each event (ObjectId, Action, Speed, Count, or add your own).</li>
       <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates, the last state and the time since it.</li>
       <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
-      <li><b>Saving:</b> event logs, bestshot images and raw metadata per camera, each switched on only if you want it.</li>
+      <li><b>Saving:</b> event logs and raw metadata per camera, each switched on only if you want it.</li>
       <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-4 are remembered.</li>
       <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
     </ul>
     <h3 class="sub">Getting started</h3>
     <ol class="steps note">
-      <li>Enter the camera's IP address, user name and password, and click <b>Log In</b>. The RTSP path is
-        prefilled with <code>/onvif/profile2/media.smp</code>; if your camera streams its metadata
-        elsewhere, enter that path.</li>
+      <li>Enter the camera's IP address, user name and password, and the RTSP path of its metadata
+        stream, then click <b>Log In</b>.</li>
       <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
         for the counts.</li>
@@ -322,12 +321,14 @@ const WEB3FORMS_KEY = "658c4437-0601-4b97-ae49-45a2c129c203";
 const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 const SCREENSHOTS = [
-  ["media/screenshot-1.png", "Main window: cameras, live event log and filters"],
-  ["media/screenshot-2.png", "Event statistics"],
+  ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
+  ["media/screenshot-2.png", "Event statistics after 30 hours of monitoring"],
   ["media/screenshot-3.png", "An event's metadata (double-click a feature)"],
   ["media/screenshot-4.png", "Features: choose which events to show"],
-  ["media/screenshot-5.png", "Settings > General"],
-  ["media/screenshot-6.png", "A new version is out"],
+  ["media/screenshot-5.png", "Right-click a feature: only its events are shown"],
+  ["media/screenshot-6.png", "Paused (Space): the banner counts the events skipped"],
+  ["media/screenshot-7.png", "Settings > General"],
+  ["media/screenshot-8.png", "A new version is out"],
 ];
 
 function el(tag, attrs, ...kids) {

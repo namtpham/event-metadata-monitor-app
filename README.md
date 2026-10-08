@@ -29,7 +29,7 @@ the rule that fired, and the details you choose (object ID, Enter / Exit, speed,
 - **Double-click** a timestamp to copy the event's XML, or a feature to see it colour-coded.
 - **Event statistics** per feature, with average rates and Enter / Exit counts.
 - **RTP packet loss** and memory charts for long sessions.
-- Saves event logs, bestshot images and metadata per camera, if you want.
+- Saves event logs and metadata per camera, if you want.
 - Reconnects by itself; updates itself (Help > Check for updates > Update now).
 
 ## Get it
