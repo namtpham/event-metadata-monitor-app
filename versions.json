@@ -1,0 +1,20 @@
+{
+  "app": "Event Metadata Monitor",
+  "latest": "1.5.0",
+  "releases_page": "https://github.com/namtpham/event-metadata-monitor-app/releases",
+  "releases": [
+    {
+      "version": "1.5.0",
+      "date": "2026-10-08",
+      "notes": [
+        "First public release.",
+        "Connects to a camera's ONVIF metadata stream over RTSP (channels 1-4) and prints each analytics event as it arrives: feature, True / False state, rule, and the fields you choose (ObjectId, Action, Speed, Count, or your own).",
+        "Filters by feature, state and rule; Pause (Space) stops printing so you can read, and marks how many events the pause skipped.",
+        "Double-click a timestamp to copy that event's metadata XML; double-click a feature to see it, colour-coded, with a picture of it on the clipboard.",
+        "Event statistics per feature, with average rates and Enter / Exit counts; RTP packet-loss and memory charts for long sessions.",
+        "Saves event logs, bestshot images and metadata per camera if you want; reconnects by itself when the stream drops.",
+        "Updates: Help > Check for updates, and an automatic check once a day that can be turned off in Settings > General."
+      ]
+    }
+  ]
+}
