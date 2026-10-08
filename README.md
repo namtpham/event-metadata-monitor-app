@@ -1,0 +1,54 @@
+<p align="center">
+  <img src="icon.png" width="96" alt="">
+</p>
+
+<h1 align="center">Event Metadata Monitor</h1>
+
+<p align="center">
+  See the analytics events of your IP cameras live: every event, its state, rule and metadata.<br>
+  A free app for Windows 10 / 11 (64-bit).
+</p>
+
+<p align="center">
+  <a href="https://namtpham.github.io/event-metadata-monitor-app/"><b>Home page</b></a> ·
+  <a href="https://github.com/namtpham/event-metadata-monitor-app/releases/latest"><b>Download</b></a> ·
+  <a href="https://namtpham.github.io/event-metadata-monitor-app/#whats-new">What's new</a> ·
+  <a href="https://namtpham.github.io/event-metadata-monitor-app/#feedback">Feedback</a> ·
+  <a href="https://buymeacoffee.com/namtpham">Buy me a coffee</a>
+</p>
+
+## What it is
+
+IP cameras with video analytics (line crossing, intrusion, object detection and many more)
+report what they see as **ONVIF event metadata**, a stream of XML next to the video. Event
+Metadata Monitor connects to that stream over RTSP and shows each event the moment it arrives,
+as one readable line: the time, the feature, whether it started or ended (**True** / **False**),
+the rule that fired, and the details you choose (object ID, Enter / Exit, speed, count…).
+
+- **Filters** by feature, state and rule; **Pause** (Space) to read.
+- **Double-click** a timestamp to copy the event's XML, or a feature to see it colour-coded.
+- **Event statistics** per feature, with average rates and Enter / Exit counts.
+- **RTP packet loss** and memory charts for long sessions.
+- Saves event logs, bestshot images and metadata per camera, if you want.
+- Reconnects by itself; tells you when a new version is out (Help > Check for updates).
+
+## Get it
+
+1. Download the `.7z` from the [latest release](https://github.com/namtpham/event-metadata-monitor-app/releases/latest).
+2. Unpack it anywhere you can write to (not Program Files) and start `EventMetadataMonitor.exe`.
+   Windows 11 opens `.7z` files itself; on Windows 10 use [7-Zip](https://www.7-zip.org/).
+
+Windows may say "Windows protected your PC" for a new app: click **More info > Run anyway**.
+The app is portable: your cameras, settings, logs and saved data stay in its folder.
+
+## Feedback
+
+Questions, ideas and bug reports: use the [form on the home page](https://namtpham.github.io/event-metadata-monitor-app/#feedback)
+(no account needed) or [open an issue](https://github.com/namtpham/event-metadata-monitor-app/issues/new).
+
+---
+
+This repository holds the app's home page and its releases (the app's source code is not public).
+Screenshots for the home page go in [media/](media/).
+
+Made by [Pham Thanh Nam](https://namtpham.github.io/). Like it? [Buy me a coffee](https://buymeacoffee.com/namtpham).
