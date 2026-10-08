@@ -1,14 +1,15 @@
 {
   "app": "Event Metadata Monitor",
-  "latest": "1.5.0",
+  "latest": "1.0.0",
   "releases_page": "https://github.com/namtpham/event-metadata-monitor-app/releases",
   "releases": [
     {
-      "version": "1.5.0",
+      "version": "1.0.0",
       "date": "2026-10-08",
       "notes": [
         "First public release.",
         "Connects to a camera's ONVIF metadata stream over RTSP (channels 1-4) and prints each analytics event as it arrives: feature, True / False state, rule, and the fields you choose (ObjectId, Action, Speed, Count, or your own).",
+        "Camera makers: choose Axis, Bosch, Dahua, Hanwha Vision or Hikvision and the path of its metadata stream is filled in (with the channel); any other ONVIF camera takes the path from its settings.",
         "Filters by feature, state and rule; Pause (Space) stops printing so you can read, and marks how many events the pause skipped.",
         "Double-click a timestamp to copy that event's metadata XML; double-click a feature to see it, colour-coded, with a picture of it on the clipboard.",
         "Event statistics per feature, with average rates and Enter / Exit counts; RTP packet-loss and memory charts for long sessions.",

@@ -186,13 +186,15 @@
       <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates, the last state and the time since it.</li>
       <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
       <li><b>Saving:</b> event logs and raw metadata per camera, each switched on only if you want it.</li>
+      <li><b>Camera makers:</b> the metadata path filled in for Axis, Bosch, Dahua, Hanwha Vision and Hikvision cameras; any other ONVIF camera with its own path.</li>
       <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-4 are remembered.</li>
       <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
     </ul>
     <h3 class="sub">Getting started</h3>
     <ol class="steps note">
-      <li>Enter the camera's IP address, user name and password, and the RTSP path of its metadata
-        stream, then click <b>Log In</b>.</li>
+      <li>Enter the camera's IP address, user name and password. Choose its <b>Maker</b> (Axis, Bosch,
+        Dahua, Hanwha Vision, Hikvision) to fill in the path of its metadata stream, or choose
+        <b>Other / ONVIF</b> and enter the path from the camera's ONVIF settings. Click <b>Log In</b>.</li>
       <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
         for the counts.</li>
@@ -237,7 +239,7 @@
         in its folder.</li>
     </ul>
     <h3 class="sub">Updating</h3>
-    <p class="note" style="margin:0">From version 1.5.0 the app tells you when a new version is out:
+    <p class="note" style="margin:0">The app tells you when a new version is out:
       by itself once a day (Settings &gt; General &gt; <b>Check for updates automatically</b>, on unless you
       turn it off), or at once with <b>Help &gt; Check for updates</b>. Click <b>Update now</b>: it downloads
       the new version, checks it, restarts and reconnects, and keeps your cameras, settings and saved data.
@@ -267,7 +269,7 @@
           </select>
         </label>
         <label><span>App version <span class="hint-opt">(optional)</span></span>
-          <input name="version" placeholder="e.g. 1.5.0" maxlength="60">
+          <input name="version" placeholder="e.g. 1.0.0" maxlength="60">
         </label>
       </div>
       <label>Message
