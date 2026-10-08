@@ -14,7 +14,10 @@ Missing files are skipped; with none the section stays hidden.
 | `demo.mp4` | (optional) In use | A short H.264 video, best under 25 MB (the upload limit on github.com) |
 | `demo.jpg` | (optional) | The picture shown before the video plays |
 
-Tip: blur or crop out camera IP addresses, user names and passwords before uploading.
+The screenshots here were made with simulated camera data (a pretend camera
+streaming a fictional analytics app, "SimSight"), so they show no real devices,
+places or people. If you replace them with captures from real cameras, blur or
+crop out IP addresses, user names and passwords first.
 
 To add or replace them on github.com: open this folder, **Add file > Upload
 files**, drop the files (with exactly these names), **Commit changes**. The

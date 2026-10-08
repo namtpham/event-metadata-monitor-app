@@ -30,13 +30,13 @@ the rule that fired, and the details you choose (object ID, Enter / Exit, speed,
 - **Event statistics** per feature, with average rates and Enter / Exit counts.
 - **RTP packet loss** and memory charts for long sessions.
 - Saves event logs, bestshot images and metadata per camera, if you want.
-- Reconnects by itself; tells you when a new version is out (Help > Check for updates).
+- Reconnects by itself; updates itself (Help > Check for updates > Update now).
 
 ## Get it
 
-1. Download the `.7z` from the [latest release](https://github.com/namtpham/event-metadata-monitor-app/releases/latest).
+1. Download the `.zip` from the [latest release](https://github.com/namtpham/event-metadata-monitor-app/releases/latest).
 2. Unpack it anywhere you can write to (not Program Files) and start `EventMetadataMonitor.exe`.
-   Windows 11 opens `.7z` files itself; on Windows 10 use [7-Zip](https://www.7-zip.org/).
+   New versions install themselves: Help > Check for updates > **Update now**.
 
 Windows may say "Windows protected your PC" for a new app: click **More info > Run anyway**.
 The app is portable: your cameras, settings, logs and saved data stay in its folder.
