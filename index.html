@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event Metadata Monitor</title>
-<meta name="description" content="Event Metadata Monitor: a free Windows app that shows the ONVIF analytics events of IP cameras live. Downloads, what's new, feedback.">
-<link rel="icon" href="favicon.ico?v=3">
+<title>Event Metadata Monitor for ONVIF cameras</title>
+<meta name="description" content="Event Metadata Monitor for ONVIF cameras: a free Windows app that shows the ONVIF analytics events of IP cameras live. Downloads, what's new, feedback.">
+<link rel="icon" href="favicon.ico?v=4">
 <style>
   :root {
     --bg: #f5f6f8; --card: #ffffff; --text: #1d2330; --muted: #5f6b7a; --line: #e2e6ec;
@@ -27,6 +27,7 @@
   .brand img { width: 72px; height: 72px; }
   h1 { margin: 0; font-size: 2rem; }
   .tagline { margin: 4px 0 0; color: var(--muted); }
+  h1 .for { font-weight: 500; color: var(--muted); font-size: .62em; white-space: nowrap; }
   .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
   .btn { display: inline-block; padding: 10px 20px; border-radius: 6px; background: var(--accent);
          color: #fff; text-decoration: none; font-weight: 600; }
@@ -141,10 +142,10 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <img src="icon.png?v=3" alt="">
+      <img src="icon.png?v=4" alt="">
       <div>
-        <h1>Event Metadata Monitor</h1>
-        <p class="tagline">See the analytics events of your IP cameras live: every event, its state, rule and metadata. Free for Windows.</p>
+        <h1>Event Metadata Monitor <span class="for">for ONVIF cameras</span></h1>
+        <p class="tagline">See the analytics events of your ONVIF IP cameras live: every event, its state, rule and metadata. Free for Windows.</p>
       </div>
     </div>
     <div class="cta">
@@ -194,15 +195,15 @@
       <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates, the last state and the time since it.</li>
       <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
       <li><b>Saving:</b> event logs and raw metadata per camera, each switched on only if you want it.</li>
-      <li><b>Any ONVIF camera:</b> the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision and Uniview, and the list is not a limit: any camera that streams ONVIF metadata over RTSP works with its own path.</li>
+      <li><b>Any ONVIF camera:</b> the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision and Uniview (and can be changed per maker in Settings), and the list is not a limit: any camera that streams ONVIF metadata over RTSP works with its own path.</li>
       <li><b>Any analytics app:</b> every event is shown under its own name, from whichever app or rule engine sent it; nothing to set up.</li>
-      <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-4 are remembered.</li>
+      <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-8 are remembered.</li>
       <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
     </ul>
     <h3 class="sub">Getting started</h3>
     <ol class="steps note">
       <li>Enter the camera's IP address, user name and password. Choose its <b>Maker</b> to fill in the
-        path of its metadata stream. Not in the list? Choose <b>Other / ONVIF</b> and enter the path from
+        path of its metadata stream. Not in the list? Choose <b>Custom</b> and enter the path from
         the camera's ONVIF settings or manual (ONVIF Device Manager shows it too). Click <b>Log In</b>.</li>
       <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
@@ -339,7 +340,7 @@ const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 // The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
 // ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
-const MEDIA_REV = "202610090608";
+const MEDIA_REV = "202610090648";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
   ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],

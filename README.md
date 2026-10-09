@@ -2,10 +2,10 @@
   <img src="icon.png" width="96" alt="">
 </p>
 
-<h1 align="center">Event Metadata Monitor</h1>
+<h1 align="center">Event Metadata Monitor<br><sub>for ONVIF cameras</sub></h1>
 
 <p align="center">
-  See the analytics events of your IP cameras live: every event, its state, rule and metadata.<br>
+  See the analytics events of your ONVIF IP cameras live: every event, its state, rule and metadata.<br>
   A free app for Windows 10 / 11 (64-bit).
 </p>
 
@@ -31,7 +31,7 @@ the rule that fired, and the details you choose (object ID, Enter / Exit, speed,
 - **RTP packet loss** and memory charts for long sessions.
 - Saves event logs and metadata per camera, if you want.
 - Any ONVIF camera: the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision
-  and Uniview, and any other camera works with its own path. Events from any analytics app, no setup.
+  and Uniview (changeable in Settings), and any other camera works with its own path (Maker Custom). Events from any analytics app, no setup.
 - Reconnects by itself; updates itself (Help > Check for updates > Update now).
 
 ## Get it
