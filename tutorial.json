@@ -4,37 +4,43 @@
       "id": "pause",
       "title": "Pause and resume",
       "text": "Press Space, or click Pause, to stop the log while you read it. A banner marks the pause and counts the events that arrived meanwhile: they are not shown, but the statistics and the saved logs keep counting them.\n\nSpace again, or Resume, carries on with the newest events.",
-      "gif": "media/tutorial/pause.gif"
+      "gif": "media/tutorial/pause.gif",
+      "gif_big": "media/tutorial/big/pause.gif"
     },
     {
       "id": "features",
       "title": "Show only some features",
       "text": "Features lists every kind of event the camera has sent. Switch one off to hide its events; right-click a name to show only that one; Select all brings them all back.\n\nThe log is redrawn at once, earlier events included.",
-      "gif": "media/tutorial/features.gif"
+      "gif": "media/tutorial/features.gif",
+      "gif_big": "media/tutorial/big/features.gif"
     },
     {
       "id": "state_rule",
       "title": "Filter by state and rule",
       "text": "True or False shows only the events in that state; All shows both. Rule shows the events of one rule (the name it has on the camera).\n\nReset filters clears every filter, the features included.",
-      "gif": "media/tutorial/state_rule.gif"
+      "gif": "media/tutorial/state_rule.gif",
+      "gif_big": "media/tutorial/big/state_rule.gif"
     },
     {
       "id": "statistics",
       "title": "Event statistics",
       "text": "Show event statistics opens a table: for each feature, how many true and false events came, its last state and how long ago. It counts every event of this connection, also while the log is paused or filtered.\n\nShow details splits a feature by its sub-items (Enter / Exit); Show average turns the counts into rates per second, minute or hour; Follow feature filter keeps the table to the features shown in the log.",
-      "gif": "media/tutorial/statistics.gif"
+      "gif": "media/tutorial/statistics.gif",
+      "gif_big": "media/tutorial/big/statistics.gif"
     },
     {
       "id": "copy_timestamp",
       "title": "Copy an event's metadata",
       "text": "Double-click an event's timestamp: its metadata, exactly as the camera sent it, goes to the clipboard, ready to paste into a bug report or an editor.\n\nPossible for 5 minutes after the event arrived.",
-      "gif": "media/tutorial/copy_timestamp.gif"
+      "gif": "media/tutorial/copy_timestamp.gif",
+      "gif_big": "media/tutorial/big/copy_timestamp.gif"
     },
     {
       "id": "metadata_panel",
       "title": "Read an event's metadata",
       "text": "Double-click the feature name: a panel shows the event's metadata, colour-coded, and a picture of it goes to the clipboard (Settings > General: what the picture includes).\n\nIt closes by itself after a while (Settings > General), or with a click or Esc.",
-      "gif": "media/tutorial/metadata_panel.gif"
+      "gif": "media/tutorial/metadata_panel.gif",
+      "gif_big": "media/tutorial/big/metadata_panel.gif"
     }
   ]
 }

@@ -21,7 +21,8 @@ Screenshots 4 to 7 are made but not shown (the page's SCREENSHOTS list
 leaves them out): the "How to use" section shows the same, animated.
 
 `tutorial/*.gif` and `../tutorial.json` are the "How to use" section (the app's
-Help > Tutorial): made by `tools/tutorial_gifs.py`, not by hand.
+Help > Tutorial), `tutorial/big/*.gif` the same at full size for the viewer a
+click opens: made by `tools/tutorial_gifs.py`, not by hand.
 
 The screenshots here were made with simulated camera data (a pretend camera
 streaming a fictional analytics app, "SimSight", with a 30-hour session
