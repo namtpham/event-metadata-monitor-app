@@ -17,6 +17,12 @@ Missing files are skipped; with none the section stays hidden.
 | `demo.mp4` | (optional) In use | A short H.264 video, best under 25 MB (the upload limit on github.com) |
 | `demo.jpg` | (optional) | The picture shown before the video plays |
 
+Screenshots 4 to 7 are made but not shown (the page's SCREENSHOTS list
+leaves them out): the "How to use" section shows the same, animated.
+
+`tutorial/*.gif` and `../tutorial.json` are the "How to use" section (the app's
+Help > Tutorial): made by `tools/tutorial_gifs.py`, not by hand.
+
 The screenshots here were made with simulated camera data (a pretend camera
 streaming a fictional analytics app, "SimSight", with a 30-hour session
 simulated), so they show no real devices, places or people. If you replace them with captures from real cameras, blur or
