@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Event Metadata Monitor for ONVIF cameras</title>
 <meta name="description" content="Event Metadata Monitor for ONVIF cameras: a free Windows app that shows the ONVIF analytics events of IP cameras live. Downloads, what's new, feedback.">
-<link rel="icon" href="favicon.ico?v=4">
+<link rel="icon" href="favicon.ico?v=5">
 <style>
   :root {
     --bg: #f5f6f8; --card: #ffffff; --text: #1d2330; --muted: #5f6b7a; --line: #e2e6ec;
@@ -74,12 +74,15 @@
   footer { color: var(--muted); font-size: .88rem; padding: 10px 0 40px; display: flex;
            flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
   /* How to use: the app's Help > Tutorial (tutorial.json, media/tutorial/) */
-  .howto { display: grid; gap: 26px; }
-  .topic { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 18px; align-items: start; }
-  .topic img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #0d0d0d; }
+  .howto { display: grid; gap: 34px; }
   .topic h3 { margin: 2px 0 6px; font-size: 1.02rem; }
   .topic p { margin: 0 0 8px; }
-  @media (max-width: 760px) { .topic { grid-template-columns: 1fr; } }
+  /* Each animation the full width of the page (its own size at most); a
+     click opens it larger, in the screenshot viewer. */
+  .topic a.zoom { display: block; max-width: 760px; margin-top: 10px; border: 1px solid var(--line);
+                  border-radius: 8px; overflow: hidden; cursor: zoom-in; background: #0d0d0d; }
+  .topic a.zoom img { display: block; width: 100%; height: auto; }
+  .topic .enlarge { color: var(--muted); font-size: .85rem; margin: 4px 2px 0; }
   /* See it: the demo video and the screenshots (media/; hidden while there are none) */
   #see h3 { margin: 0 0 8px; font-size: 1.02rem; }
   #see .clip { margin-bottom: 22px; }
@@ -142,7 +145,7 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <img src="icon.png?v=4" alt="">
+      <img src="icon.png?v=5" alt="">
       <div>
         <h1>Event Metadata Monitor <span class="for">for ONVIF cameras</span></h1>
         <p class="tagline">See the analytics events of your ONVIF IP cameras live: every event, its state, rule and metadata. Free for Windows.</p>
@@ -227,7 +230,7 @@
     <div class="howto" id="howto"></div>
   </section>
 
-  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screenshot">
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Picture viewer">
     <span class="count" id="lb-count"></span>
     <button class="close" id="lb-close" aria-label="Close">&times;</button>
     <button class="prev" id="lb-prev" aria-label="Previous">&#8249;</button>
@@ -340,7 +343,7 @@ const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 // The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
 // ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
-const MEDIA_REV = "202610090719";
+const MEDIA_REV = "202610091056";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
   ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],
@@ -481,12 +484,20 @@ fetch("versions.json", { cache: "no-store" })
       const topics = data.topics || [];
       if (!topics.length) return;
       section.hidden = false;           // first, so the (lazy) pictures load
+      const large = [];                 // [src, caption] for the viewer
       topics.forEach((t, i) => {
+        const title = (i + 1) + ". " + t.title;
+        // gif_big: the same animation at full size, fetched only when opened.
+        const big = (t.gif_big || t.gif) + "?v=" + MEDIA_REV;
         const img = el("img", { src: t.gif + "?v=" + MEDIA_REV, alt: t.title, loading: "lazy" });
-        img.addEventListener("error", () => img.remove());
-        const text = el("div", {}, el("h3", {}, (i + 1) + ". " + t.title),
+        const zoom = el("a", { class: "zoom", href: big, title: "Click to see it larger" }, img);
+        const at = large.push([big, title, true]) - 1;     // true: fill the screen
+        zoom.addEventListener("click", (e) => { e.preventDefault(); window.openViewer(large, at); });
+        const hint = el("p", { class: "enlarge" }, "Click the animation to see it larger.");
+        img.addEventListener("error", () => { zoom.remove(); hint.remove(); });
+        const text = el("div", {}, el("h3", {}, title),
                         ...String(t.text || "").split("\n\n").map(p => el("p", {}, p)));
-        box.append(el("div", { class: "topic", id: "how-" + t.id }, img, text));
+        box.append(el("div", { class: "topic", id: "how-" + t.id }, text, zoom, hint));
       });
     })
     .catch(() => {});
@@ -520,7 +531,8 @@ fetch("versions.json", { cache: "no-store" })
     const entry = [src, caption, fig];
     a.addEventListener("click", (e) => {
       e.preventDefault();
-      openViewer(loaded.filter(x => !x[2].hidden).indexOf(entry));
+      const visible = loaded.filter(x => !x[2].hidden);
+      openViewer(visible, visible.indexOf(entry));
     });
     const shown = () => {
       if (!fig.hidden) return;
@@ -537,18 +549,35 @@ fetch("versions.json", { cache: "no-store" })
 
   const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
   const lbCap = document.getElementById("lb-cap"), lbCount = document.getElementById("lb-count");
-  let at = 0, lastFocus = null;
+  // The viewer shows one list at a time: the screenshots, or the How to use
+  // animations ([src, caption, fill] each). A screenshot shows at its own
+  // size at most; an animation is enlarged to fill the screen (up to twice
+  // its size), as that is what it was opened for.
+  let list = [], at = 0, lastFocus = null;
+  function fit() {
+    const fill = list[at] && list[at][2], w = lbImg.naturalWidth, h = lbImg.naturalHeight;
+    if (!fill || !w) { lbImg.style.width = ""; return; }
+    const small = window.innerWidth <= 560;
+    const k = Math.min((window.innerWidth - (small ? 24 : 112)) / w,
+                       (window.innerHeight - (small ? 150 : 110)) / h, 2);
+    lbImg.style.width = Math.round(w * Math.max(k, 0.1)) + "px";
+  }
+  lbImg.addEventListener("load", fit);
+  window.addEventListener("resize", fit);
   function render() {
-    const [src, caption] = loaded[at];
+    const [src, caption] = list[at];
+    lbImg.style.width = "";
     lbImg.src = src;
-    lbImg.alt = caption || "Screenshot " + (at + 1);
+    if (lbImg.complete) fit();
+    lbImg.alt = caption || "Picture " + (at + 1);
     lbCap.textContent = caption || "";
-    lbCount.textContent = (at + 1) + " / " + loaded.length;
-    const many = loaded.length > 1;
+    lbCount.textContent = (at + 1) + " / " + list.length;
+    const many = list.length > 1;
     document.getElementById("lb-prev").hidden = document.getElementById("lb-next").hidden = !many;
   }
-  function openViewer(i) {
-    if (i < 0) return;
+  function openViewer(items, i) {
+    if (i < 0 || !items.length) return;
+    list = items;
     at = i;
     lastFocus = document.activeElement;
     render();
@@ -561,7 +590,8 @@ fetch("versions.json", { cache: "no-store" })
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   }
-  const step = (d) => { at = (at + d + loaded.length) % loaded.length; render(); };
+  window.openViewer = openViewer;
+  const step = (d) => { at = (at + d + list.length) % list.length; render(); };
   document.getElementById("lb-close").onclick = closeViewer;
   document.getElementById("lb-prev").onclick = (e) => { e.stopPropagation(); step(-1); };
   document.getElementById("lb-next").onclick = (e) => { e.stopPropagation(); step(1); };
