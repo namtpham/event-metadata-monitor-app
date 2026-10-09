@@ -207,8 +207,10 @@
     <ol class="steps note">
       <li>Enter the camera's IP address, user name and password. Choose its <b>Maker</b> to fill in the
         path of its metadata stream. Not in the list? Choose <b>Custom</b> and enter the path from
-        the camera's ONVIF settings or manual (ONVIF Device Manager shows it too). Click <b>Log In</b>.</li>
-      <li>Click <b>Conn</b> next to the camera. Events appear as the camera sends them.</li>
+        the camera's ONVIF settings or manual (ONVIF Device Manager shows it too). Pick the channel
+        (<b>+</b> for one above 8) and click <b>Log In</b>.</li>
+      <li>The camera joins the list and connects: events appear as it sends them. Later, click it in the list
+        (or its &#9654;) to connect again; its &#8943; menu opens its data folder or deletes it.</li>
       <li>Use <b>Features</b>, <b>State</b> and <b>Rule</b> to narrow the log, and <b>Show event statistics</b>
         for the counts.</li>
     </ol>
@@ -343,7 +345,7 @@ const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 // The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
 // ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
-const MEDIA_REV = "202610091056";
+const MEDIA_REV = "202610091130";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
   ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],
