@@ -72,6 +72,13 @@
   #more { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 6px 0 0; font: inherit; }
   footer { color: var(--muted); font-size: .88rem; padding: 10px 0 40px; display: flex;
            flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+  /* How to use: the app's Help > Tutorial (tutorial.json, media/tutorial/) */
+  .howto { display: grid; gap: 26px; }
+  .topic { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 18px; align-items: start; }
+  .topic img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #0d0d0d; }
+  .topic h3 { margin: 2px 0 6px; font-size: 1.02rem; }
+  .topic p { margin: 0 0 8px; }
+  @media (max-width: 760px) { .topic { grid-template-columns: 1fr; } }
   /* See it: the demo video and the screenshots (media/; hidden while there are none) */
   #see h3 { margin: 0 0 8px; font-size: 1.02rem; }
   #see .clip { margin-bottom: 22px; }
@@ -143,6 +150,7 @@
     <div class="cta">
       <a class="btn" href="#download">Download</a>
       <a class="btn secondary" href="#about">What it is</a>
+      <a class="btn secondary" href="#how">How to use</a>
       <a class="btn secondary" href="#whats-new">What's new</a>
       <a class="btn secondary" href="#feedback">Feedback</a>
       <a class="btn coffee" href="https://buymeacoffee.com/namtpham" target="_blank" rel="noopener">&#9749; Buy me a coffee</a>
@@ -210,6 +218,12 @@
     </div>
     <h3 id="shots-h" hidden>Screenshots <span class="note">(simulated camera data; click to enlarge)</span></h3>
     <div class="shots" id="shots"></div>
+  </section>
+
+  <section id="how" hidden>
+    <h2>How to use</h2>
+    <p class="note">The basics, a few seconds each: the same as Help &rsaquo; Tutorial in the app (simulated camera data).</p>
+    <div class="howto" id="howto"></div>
   </section>
 
   <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screenshot">
@@ -325,15 +339,13 @@ const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 // The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
 // ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
-const MEDIA_REV = "202610081717";
+const MEDIA_REV = "202610090436";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
   ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],
   ["media/screenshot-3.png", "Event statistics after 30 hours of monitoring"],
-  ["media/screenshot-4.png", "An event's metadata (double-click a feature)"],
-  ["media/screenshot-5.png", "Features: choose which events to show"],
-  ["media/screenshot-6.png", "Right-click a feature: only its events are shown"],
-  ["media/screenshot-7.png", "Paused (Space): the banner counts the events skipped"],
+  // 4-7 (the metadata panel, Features, right-click, paused) are left out: the
+  // How to use section shows the same, animated.
   ["media/screenshot-8.png", "Settings > General"],
   ["media/screenshot-9.png", "A new version is out"],
 ].map(([src, caption]) => [src + "?v=" + MEDIA_REV, caption]);
@@ -456,6 +468,27 @@ fetch("versions.json", { cache: "no-store" })
       button.disabled = false;
     }
   });
+})();
+
+// How to use: the topics of the app's Help > Tutorial, written to
+// tutorial.json by tools/tutorial_gifs.py along with their animations.
+(function howTo() {
+  fetch("tutorial.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      const section = document.getElementById("how"), box = document.getElementById("howto");
+      const topics = data.topics || [];
+      if (!topics.length) return;
+      section.hidden = false;           // first, so the (lazy) pictures load
+      topics.forEach((t, i) => {
+        const img = el("img", { src: t.gif + "?v=" + MEDIA_REV, alt: t.title, loading: "lazy" });
+        img.addEventListener("error", () => img.remove());
+        const text = el("div", {}, el("h3", {}, (i + 1) + ". " + t.title),
+                        ...String(t.text || "").split("\n\n").map(p => el("p", {}, p)));
+        box.append(el("div", { class: "topic", id: "how-" + t.id }, img, text));
+      });
+    })
+    .catch(() => {});
 })();
 
 (function seeIt() {
