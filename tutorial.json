@@ -24,7 +24,7 @@
     {
       "id": "statistics",
       "title": "Event statistics",
-      "text": "Show event statistics opens a table: for each feature, how many true and false events came, its last state and how long ago. It counts every event of this connection, also while the log is paused or filtered.\n\nShow details splits a feature by its sub-items (Enter / Exit); Show average turns the counts into rates per second, minute or hour; Follow feature filter keeps the table to the features shown in the log.",
+      "text": "Show event statistics opens a table: for each feature, how many true and false events came, its last state and how long ago. It counts every event of this connection, also while the log is paused or filtered. The connected camera's row shows how long it has been connected.\n\nShow details splits a feature by its sub-items (Enter / Exit); Show average turns the counts into rates per second, minute or hour, over the whole session or its last 10 seconds to 1 minute; Follow feature filter keeps the table to the features shown in the log.",
       "gif": "media/tutorial/statistics.gif",
       "gif_big": "media/tutorial/big/statistics.gif"
     },
@@ -38,9 +38,16 @@
     {
       "id": "metadata_panel",
       "title": "Read an event's metadata",
-      "text": "Double-click the feature name: a panel shows the event's metadata, colour-coded, and a picture of it goes to the clipboard (Settings > General: what the picture includes).\n\nIt closes by itself after a while (Settings > General), or with a click or Esc.",
+      "text": "Double-click the feature name: a panel shows the event's metadata, colour-coded, and a picture of the panel goes to the clipboard.\n\nIt closes by itself after a while, or with a click or Esc (Settings > General: how long, and its colours).",
       "gif": "media/tutorial/metadata_panel.gif",
       "gif_big": "media/tutorial/big/metadata_panel.gif"
+    },
+    {
+      "id": "memory_rtp",
+      "title": "App memory and RTP loss",
+      "text": "App memory, under the camera list, is the memory this app uses (as Task Manager shows it), measured once a minute. Point at the curve to read a minute.\n\nIt should stay about level however long the app runs: a line that keeps climbing for hours is a memory leak. Please report it (Help > Home page, feedback) with logs\\debug.log.\n\nRTP loss, on the bottom bar, is the share of the camera's packets that never arrived: green under 1%, then yellow, orange and red. Lost packets are lost events: check the network and the camera.",
+      "gif": "media/tutorial/memory_rtp.gif",
+      "gif_big": "media/tutorial/big/memory_rtp.gif"
     }
   ]
 }

@@ -195,10 +195,10 @@
       <li><b>Pause</b> (Space) stops printing so you can read; a banner marks the pause and how many events it skipped.</li>
       <li><b>Metadata on a double-click:</b> a timestamp copies that event's XML; a feature name shows it, colour-coded, with a picture of it on the clipboard.</li>
       <li><b>Your fields:</b> choose which SimpleItem values follow each event (ObjectId, Action, Speed, Count, or add your own).</li>
-      <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates, the last state and the time since it.</li>
-      <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use.</li>
+      <li><b>Event statistics:</b> True / False / total per feature, Enter / Exit counts, average rates (over the whole session or its last 10 seconds to 1 minute), the last state and the time since it.</li>
+      <li><b>Health charts:</b> RTP packet loss over the last minutes or the whole session, and the app's own memory use, which should stay level: a line that keeps climbing is a memory leak worth reporting.</li>
       <li><b>Saving:</b> event logs and raw metadata per camera, each switched on only if you want it.</li>
-      <li><b>Any ONVIF camera:</b> the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision and Uniview (and can be changed per maker in Settings), and the list is not a limit: any camera that streams ONVIF metadata over RTSP works with its own path.</li>
+      <li><b>Any ONVIF camera:</b> the metadata path is filled in for Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision and Uniview (suggested paths: not every model could be tested, so each can be changed per manufacturer in Settings, and a wrong one reported below), and the list is not a limit: any camera that streams ONVIF metadata over RTSP works with its own path.</li>
       <li><b>Any analytics app:</b> every event is shown under its own name, from whichever app or rule engine sent it; nothing to set up.</li>
       <li><b>Steady:</b> reconnects by itself when the stream drops; cameras, passwords and channels 1-8 are remembered.</li>
       <li><b>Portable and up to date:</b> no installer; <b>Update now</b> installs a new version in place.</li>
@@ -345,7 +345,7 @@ const DEMO_VIDEO = "media/demo.mp4";
 const DEMO_POSTER = "media/demo.jpg";
 // The screenshots' revision: tools/demo_screenshots.py sets it when it saves new
 // ones, so browsers and the Pages CDN fetch them again instead of a cached copy.
-const MEDIA_REV = "202610091704";
+const MEDIA_REV = "202610101228";
 const SCREENSHOTS = [
   ["media/screenshot-1.png", "Main window after 30 hours: cameras, live event log, memory and RTP loss"],
   ["media/screenshot-2.png", "Choose the camera's maker: the path of its metadata stream is filled in"],
