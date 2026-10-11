@@ -19,7 +19,13 @@
         "Statistics average over the whole session or over the last 10 s, 30 s or 1 min.",
         "Camera passwords show as *** in the event log and in logs\\debug.log; a wrong login or path says what to check.",
         "Windows open complete and in place, and the main window opens where you left it."
-      ]
+      ],
+      "download": {
+        "name": "EventMetadataMonitor_2.0.0_20261011.zip",
+        "size": 127065555,
+        "sha256": "2a2cb79601e33f324116741d6b2246b4db74e4711505e9ac595c9a75b3051af3",
+        "url": "https://github.com/namtpham/event-metadata-monitor-app/releases/download/v2.0.0/EventMetadataMonitor_2.0.0_20261011.zip"
+      }
     }
   ]
 }
