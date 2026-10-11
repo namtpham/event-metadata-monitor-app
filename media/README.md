@@ -8,7 +8,7 @@ Missing files are skipped; with none the section stays hidden.
 | `screenshot-1.png` | Main window after 30 hours: cameras, live event log, memory and RTP loss | The whole window, connected, events scrolling |
 | `screenshot-2.png` | Choose the camera's maker: the path of its metadata stream is filled in | The Maker list open, a maker chosen |
 | `screenshot-3.png` | Event statistics after 30 hours of monitoring | "Show event statistics" switched on |
-| `screenshot-4.png` | An event's metadata (double-click a feature) | The colour-coded metadata panel over the log |
+| `screenshot-4.png` | An event's metadata (double-click a feature) | The color-coded metadata panel over the log |
 | `screenshot-5.png` | Features: choose which events to show | The Features popup |
 | `screenshot-6.png` | Right-click a feature: only its events are shown | The Features popup after a right-click on one feature |
 | `screenshot-7.png` | Paused (Space): the banner counts the events skipped | The log while paused |

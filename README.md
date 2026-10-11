@@ -26,7 +26,7 @@ as one readable line: the time, the feature, whether it started or ended (**True
 the rule that fired, and the details you choose (object ID, Enter / Exit, speed, count…).
 
 - **Filters** by feature, state and rule; **Pause** (Space) to read.
-- **Double-click** a timestamp to copy the event's XML, or a feature to see it colour-coded.
+- **Double-click** a timestamp to copy the event's XML, or a feature to see it color-coded.
 - **Event statistics** per feature, with average rates and Enter / Exit counts.
 - **RTP packet loss** and memory charts for long sessions.
 - Saves event logs and metadata per camera, if you want.

@@ -38,7 +38,7 @@
     {
       "id": "metadata_panel",
       "title": "Read an event's metadata",
-      "text": "Double-click the feature name: a panel shows the event's metadata, colour-coded, and a picture of the panel goes to the clipboard.\n\nIt closes by itself after a while, or with a click or Esc (Settings > General: how long, and its colours).",
+      "text": "Double-click the feature name: a panel shows the event's metadata, color-coded, and a picture of the panel goes to the clipboard.\n\nIt closes by itself after a while, or with a click or Esc (Settings > General: how long, and its colors).",
       "gif": "media/tutorial/metadata_panel.gif",
       "gif_big": "media/tutorial/big/metadata_panel.gif"
     },
