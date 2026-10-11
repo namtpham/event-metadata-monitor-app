@@ -1,22 +1,24 @@
 {
   "app": "Event Metadata Monitor",
-  "latest": "1.0.0",
+  "latest": "2.0.0",
   "releases_page": "https://github.com/namtpham/event-metadata-monitor-app/releases",
   "releases": [
     {
-      "version": "1.0.0",
-      "date": "2026-10-08",
+      "version": "2.0.0",
+      "date": "2026-10-11",
       "notes": [
-        "First public release.",
-        "Connects to a camera's ONVIF metadata stream over RTSP (channels 1-8) and prints each analytics event as it arrives: feature, True / False state, rule, and the fields you choose (ObjectId, Action, Speed, Count, or your own).",
-        "Any ONVIF camera: choose its maker (Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision, Uniview) and the path of its metadata stream is filled in, with the channel (each maker's path can be changed in Settings > Stream paths); any other camera works with Maker Custom and its own path.",
-        "Events from any analytics app or rule engine are shown under their own names; only the camera's own status topics count as camera metadata.",
-        "Filters by feature, state and rule; Pause (Space) stops printing so you can read, and marks how many events the pause skipped.",
-        "Double-click a timestamp to copy that event's metadata XML; double-click a feature to see it, color-coded, with a picture of it on the clipboard.",
-        "Event statistics per feature, with average rates and Enter / Exit counts; RTP packet-loss and memory charts for long sessions.",
-        "Saves event logs and metadata per camera if you want; reconnects by itself when the stream drops.",
-        "Updates: Help > Check for updates, and an automatic check once a day that can be turned off in Settings > General. Update now downloads the new version and restarts, keeping your cameras, settings and saved data.",
-        "Camera passwords show as *** in the event log and in logs\\debug.log."
+        "First public release. Versions 1.x were shared inside a team; this is what 2.0.0 adds and improves.",
+        "Any ONVIF camera: choose its maker (Avigilon, Axis, Bosch, Dahua, Hanwha Vision, Hikvision, Uniview) and the path of its metadata stream is filled in, with the channel; any other camera works with Maker Custom and its own path. Each maker's path can be changed in Settings > Stream paths.",
+        "One row per camera and channel (1-8, more with \"+\"), with a channel badge, the session time and its own buttons; each channel saves to its own data folder.",
+        "Events from any analytics app or rule engine are shown under their own names.",
+        "Much faster under a flood of events: the log stays smooth at hundreds of events a second. When it falls behind, events are still counted in the statistics and saved, and the log says how many were not printed.",
+        "Updates: an automatic check once a day (can be turned off in Settings > General) and Help > Check for updates. Update now installs the new version and restarts, keeping your cameras, settings and saved data.",
+        "Help > Tutorial: short animated guides to pausing, filtering, statistics, copying metadata, and the memory and RTP-loss charts. It opens by itself for new users.",
+        "The metadata panel (double-click a feature) shows the full timestamp and the camera's IP, has color themes, and closes after a time you choose.",
+        "Settings > General: colors for true and false events (the State filter's buttons follow them), and one text size for the whole app.",
+        "Statistics average over the whole session or over the last 10 s, 30 s or 1 min.",
+        "Camera passwords show as *** in the event log and in logs\\debug.log; a wrong login or path says what to check.",
+        "Windows open complete and in place, and the main window opens where you left it."
       ]
     }
   ]
