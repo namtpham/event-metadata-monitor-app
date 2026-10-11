@@ -31,14 +31,14 @@
     {
       "id": "copy_timestamp",
       "title": "Copy an event's metadata",
-      "text": "Double-click an event's timestamp: its metadata, exactly as the camera sent it, goes to the clipboard, ready to paste into a bug report or an editor.\n\nPossible for 5 minutes after the event arrived.",
+      "text": "Double-click an event's timestamp: its metadata, exactly as the camera sent it, goes to the clipboard, ready to paste into a bug report or an editor.\n\nPossible for 5 minutes after the event arrived, while it is among the newest 10,000 events. Under a flood of events that can be seconds: pause first (Space), and new events no longer push it out.",
       "gif": "media/tutorial/copy_timestamp.gif",
       "gif_big": "media/tutorial/big/copy_timestamp.gif"
     },
     {
       "id": "metadata_panel",
       "title": "Read an event's metadata",
-      "text": "Double-click the feature name: a panel shows the event's metadata, color-coded, and a picture of the panel goes to the clipboard.\n\nIt closes by itself after a while, or with a click or Esc (Settings > General: how long, and its colors).",
+      "text": "Double-click the feature name: a panel shows the event's metadata, color-coded, and a picture of the panel goes to the clipboard.\n\nIt closes by itself after a while, or with a click or Esc (Settings > General: how long, and its colors).\n\nUnder a flood of events, pause first (Space): an event's metadata is kept only while it is among the newest 10,000 events, and the panel would say \"Metadata no longer available\".",
       "gif": "media/tutorial/metadata_panel.gif",
       "gif_big": "media/tutorial/big/metadata_panel.gif"
     },
