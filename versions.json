@@ -1,8 +1,22 @@
 {
   "app": "Event Metadata Monitor",
-  "latest": "2.0.0",
+  "latest": "2.0.1",
   "releases_page": "https://github.com/namtpham/event-metadata-monitor-app/releases",
   "releases": [
+    {
+      "version": "2.0.1",
+      "date": "2026-10-12",
+      "notes": [
+        "Timestamp colors alternate correctly again when features, states or rules are filtered out; the metadata panel uses the same color as its line",
+        "The previous camera's session time no longer stays in the camera list after connecting to another camera"
+      ],
+      "download": {
+        "name": "EventMetadataMonitor_2.0.1_20261012.zip",
+        "size": 127770618,
+        "url": "https://github.com/namtpham/event-metadata-monitor-app/releases/download/v2.0.1/EventMetadataMonitor_2.0.1_20261012.zip",
+        "sha256": "13a7503690e1d693d0830eadd3c157c549fdbfd024fcd12e01097d80a2da255f"
+      }
+    },
     {
       "version": "2.0.0",
       "date": "2026-10-11",
