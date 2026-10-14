@@ -1,8 +1,25 @@
 {
   "app": "Event Metadata Monitor",
-  "latest": "2.0.1",
+  "latest": "2.0.2",
   "releases_page": "https://github.com/namtpham/event-metadata-monitor-app/releases",
   "releases": [
+    {
+      "version": "2.0.2",
+      "date": "2026-10-14",
+      "notes": [
+        "A camera that does not answer no longer floods the log: one line shows a turning spinner, the attempt count and the time while the app connects or retries, and the first error is printed once",
+        "The picture-saving warnings moved to the menu bar, lined up with \"... being saved\"",
+        "Memory chart: hovering a point shows its time (and date when from another day)",
+        "Events without a true/false State no longer count the State their rules report when the stream starts; \"Hide no-state event metadata\" hides them completely",
+        "A welcome on first start, in the tutorial"
+      ],
+      "download": {
+        "name": "EventMetadataMonitor_2.0.2_20261014.zip",
+        "size": 127773386,
+        "url": "https://github.com/namtpham/event-metadata-monitor-app/releases/download/v2.0.2/EventMetadataMonitor_2.0.2_20261014.zip",
+        "sha256": "4ce96207f11fd2fd79807cbc7a4a3408791255cb2cd63606095f5bc28c303ad6"
+      }
+    },
     {
       "version": "2.0.1",
       "date": "2026-10-12",
